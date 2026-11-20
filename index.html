@@ -114,6 +114,25 @@ form .btn{margin-top:20px;width:100%}
 .ok{display:none;margin-top:16px;padding:14px;border-radius:10px;background:var(--verde-claro);
   border-left:5px solid var(--verde);font-weight:600}
 
+
+/* ===== Plataforma online / nube ===== */
+#online{background:linear-gradient(135deg,var(--verde) 0%,var(--verde-2) 100%);color:#fff;overflow:hidden}
+#online h2{color:#fff}
+#online .etq{display:inline-block;margin-bottom:14px;padding:.3em 1em;border-radius:999px;
+  border:1.5px solid var(--oro);color:var(--oro-2);font-weight:700;font-size:.85rem;letter-spacing:.04em}
+#online p.intro{color:#e9f0e6}
+.feat{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:18px}
+.feat li{display:flex;gap:14px;align-items:flex-start}
+.feat .ic{flex:none;width:40px;height:40px;border-radius:12px;background:var(--oro);color:var(--verde);display:grid;place-items:center}
+.feat .ic svg{width:22px;height:22px}
+.feat strong{display:block;color:#fff;font-size:1.05rem}
+.feat span{color:#dbe7d6;font-size:.96rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips b{padding:.45em 1em;border-radius:999px;background:rgba(255,255,255,.12);font-size:.88rem;font-weight:600}
+.chips b::before{content:"✓ ";color:var(--oro)}
+.dash{max-width:520px;margin-inline:auto}
+@media (max-width:900px){ #online .split{gap:40px} }
+
 /* ===== Pie ===== */
 footer{background:var(--verde);color:#fff;padding:40px 0 28px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
@@ -189,6 +208,7 @@ body{overflow-x:hidden}
     <ul id="menu">
       <li><a href="#presentacion">Quiénes somos</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#online">Plataforma online</a></li>
       <li><a href="#confianza">Confianza</a></li>
       <li><a class="btn" href="#contacto" style="color:#fff;padding:.55em 1.3em">Contacto</a></li>
     </ul>
@@ -316,6 +336,49 @@ body{overflow-x:hidden}
       </article>
     </div>
     <p class="cierre rv">Cuéntanos qué necesidades tiene tu negocio y te ofrecemos el apoyo administrativo que necesita.</p>
+  </div>
+</section>
+
+<!-- ===== PLATAFORMA ONLINE ===== -->
+<section id="online">
+  <div class="wrap split">
+    <div class="rv">
+      <span class="etq">ONLINE Y EN LA NUBE</span>
+      <h2>Tu información, siempre a mano</h2>
+      <p class="intro">Trabajamos online y en la nube. Te damos acceso a una plataforma web y a una app móvil para que puedas consultar la información de tu negocio cuando quieras, desde el ordenador o desde el móvil.</p>
+      <ul class="feat">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+          <div><strong>Visión global de tu negocio</strong><span>Resúmenes visuales con gráficos y cifras actualizadas al momento.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span>
+          <div><strong>Ingresos y gastos en tiempo real</strong><span>Consúltalos cuando lo necesites, junto con su análisis.</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg></span>
+          <div><strong>Facturas a un clic</strong><span>Consulta y descarga tus facturas para enviarlas cuando las necesites.</span></div></li>
+      </ul>
+      <div class="chips"><b>Plataforma web</b><b>App móvil</b><b>Acceso desde cualquier lugar</b></div>
+    </div>
+    <!-- Ilustración: panel en portátil y móvil, con nube -->
+    <div class="dash rv">
+      <svg viewBox="0 0 440 320" role="img" aria-label="Ilustración de un panel con gráficos en un portátil y en un móvil, conectados a la nube">
+        <rect x="40" y="262" width="300" height="12" rx="6" fill="#f1d68a"/>
+        <rect x="60" y="40" width="260" height="224" rx="14" fill="#fff"/>
+        <rect x="76" y="56" width="228" height="14" rx="7" fill="#eef4ea"/>
+        <g fill="#eef4ea"><rect x="76" y="82" width="68" height="44" rx="8"/><rect x="156" y="82" width="68" height="44" rx="8"/><rect x="236" y="82" width="68" height="44" rx="8"/></g>
+        <g fill="#033c09"><rect x="86" y="94" width="30" height="6" rx="3"/><rect x="166" y="94" width="30" height="6" rx="3"/><rect x="246" y="94" width="30" height="6" rx="3"/></g>
+        <g fill="#dda512"><rect x="86" y="108" width="46" height="8" rx="4"/><rect x="166" y="108" width="40" height="8" rx="4"/><rect x="246" y="108" width="50" height="8" rx="4"/></g>
+        <rect x="76" y="140" width="228" height="110" rx="10" fill="#fff" stroke="#e3ead9"/>
+        <g fill="#033c09"><rect x="92" y="206" width="18" height="30" rx="3"/><rect x="122" y="192" width="18" height="44" rx="3"/><rect x="152" y="198" width="18" height="38" rx="3"/><rect x="182" y="176" width="18" height="60" rx="3"/><rect x="212" y="184" width="18" height="52" rx="3"/><rect x="242" y="166" width="18" height="70" rx="3"/></g>
+        <rect x="272" y="152" width="18" height="84" rx="3" fill="#dda512"/>
+        <path d="M101 196L131 182L161 188L191 166L221 174L251 156L281 142" stroke="#dda512" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="310" y="96" width="110" height="200" rx="18" fill="#033c09" stroke="#dda512" stroke-width="4"/>
+        <rect x="320" y="112" width="90" height="172" rx="10" fill="#fff"/>
+        <circle cx="365" cy="158" r="26" fill="none" stroke="#eef4ea" stroke-width="12"/>
+        <circle cx="365" cy="158" r="26" fill="none" stroke="#dda512" stroke-width="12" stroke-dasharray="100 164" transform="rotate(-90 365 158)"/>
+        <rect x="332" y="204" width="66" height="8" rx="4" fill="#033c09"/><rect x="332" y="222" width="50" height="8" rx="4" fill="#dda512"/><rect x="332" y="240" width="58" height="8" rx="4" fill="#cfd8cb"/>
+        <rect x="332" y="260" width="66" height="14" rx="7" fill="#033c09"/>
+        <g><circle cx="340" cy="52" r="16" fill="#dda512"/><circle cx="362" cy="42" r="20" fill="#dda512"/><circle cx="388" cy="52" r="15" fill="#dda512"/><rect x="330" y="50" width="70" height="18" rx="9" fill="#dda512"/>
+        <path d="M365 52v13M359 60l6 6 6-6" stroke="#033c09" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+      </svg>
+    </div>
   </div>
 </section>
 
