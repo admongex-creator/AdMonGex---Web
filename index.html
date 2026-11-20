@@ -87,34 +87,17 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,.9
 
 /* ===== Contacto + redes (misma altura, en paralelo) ===== */
 #contacto{background:linear-gradient(180deg,#fff,var(--verde-claro))}
-.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:stretch}
-.banners{display:flex;flex-direction:column;gap:20px}
-.banner{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:30px;
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.banner{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:30px;
   border-radius:20px;text-decoration:none;color:#fff;transition:transform .3s}
 .banner:hover{transform:translateY(-4px)}
 .banner.ig{background:linear-gradient(135deg,var(--verde),var(--verde-2))}
 .banner.wa{background:linear-gradient(135deg,var(--oro),#b98507);color:var(--negro)}
+.banner.mail{background:#fff;color:var(--verde);border:2px solid var(--verde)}
 .banner svg{width:38px;height:38px}
 .banner strong{font-size:1.3rem}
-.banner span{font-size:.95rem}
-form{background:#fff;border-radius:22px;padding:34px;border:2px solid var(--verde);
-  box-shadow:10px 10px 0 var(--oro)}
-form h3{font-size:1.4rem;color:var(--verde)}
-.tel{display:inline-block;margin-bottom:18px;font-weight:700;color:var(--verde-2);text-decoration:none}
-label{display:block;font-weight:600;font-size:.92rem;margin:14px 0 5px}
-input,textarea{width:100%;font:inherit;padding:.75em .9em;border:1.5px solid #bdbdbd;border-radius:10px;background:#fff}
-input:focus,textarea:focus{border-color:var(--verde);outline:3px solid rgba(221,165,18,.45)}
-textarea{min-height:120px;resize:vertical}
-.req{color:#a33}
-.err{display:none;color:#a33;font-size:.85rem;margin-top:4px}
-.invalid + .err{display:block}
-.invalid{border-color:#a33}
-form .btn{margin-top:20px;width:100%}
-.ok.bad{background:#fbeaea;border-left-color:#a33}
-.ok{display:none;margin-top:16px;padding:14px;border-radius:10px;background:var(--verde-claro);
-  border-left:5px solid var(--verde);font-weight:600}
-
-
+.banner span{font-size:.95rem;overflow-wrap:anywhere}
+.contacto-intro{font-size:1.1rem}
 /* ===== Plataforma online / nube ===== */
 #online{background:linear-gradient(135deg,var(--verde) 0%,var(--verde-2) 100%);color:#fff;overflow:hidden}
 #online h2{color:#fff}
@@ -132,6 +115,23 @@ form .btn{margin-top:20px;width:100%}
 .chips b::before{content:"✓ ";color:var(--oro)}
 .dash{max-width:520px;margin-inline:auto}
 @media (max-width:900px){ #online .split{gap:40px} }
+
+/* ===== Información legal (desplegables) ===== */
+#legal{background:var(--crema);padding:48px 0}
+#legal h2{font-size:1.4rem}
+.lbox{background:#fff;border-radius:14px;border:1.5px solid #eadfb8;margin-bottom:14px}
+.lbox summary{cursor:pointer;padding:18px 22px;font-weight:700;color:var(--verde);list-style:none;
+  display:flex;justify-content:space-between;align-items:center}
+.lbox summary::-webkit-details-marker{display:none}
+.lbox summary::after{content:"+";font-size:1.6rem;line-height:1;color:var(--oro)}
+.lbox[open] summary::after{content:"–"}
+.lbox .cuerpo{padding:0 22px 22px;font-size:.96rem}
+.lbox h3{font-size:1.02rem;color:var(--verde);margin:1.4em 0 .4em}
+.lbox p,.lbox li{max-width:82ch}
+.lbox ul{padding-left:1.2em;margin:0 0 1em}
+.lbox .act{font-size:.88rem;color:#555}
+.legal-links{margin-top:18px;display:flex;gap:20px;flex-wrap:wrap;font-size:.92rem}
+.legal-links a{color:var(--oro-2)}
 
 /* ===== Pie ===== */
 footer{background:var(--verde);color:#fff;padding:40px 0 28px}
@@ -163,7 +163,7 @@ footer{background:var(--verde);color:#fff;padding:40px 0 28px}
     padding:18px 0;border-bottom:1px solid #e7e2cf;gap:14px}
   .nav ul.open{display:flex}
 }
-@media (max-width:560px){ .grid{grid-template-columns:1fr} form{padding:24px} }
+@media (max-width:560px){ .grid{grid-template-columns:1fr} }
 
 /* ===== Ajustes móvil: mismo aspecto que escritorio, en una columna ===== */
 html{-webkit-text-size-adjust:100%;overflow-x:hidden}
@@ -183,13 +183,10 @@ body{overflow-x:hidden}
   .hero .wrap{gap:36px}
   .hero-art{box-shadow:8px 8px 0 var(--oro);padding:16px}
   .art{padding:20px}
-  .banners{flex-direction:row;gap:14px}
   .banner{padding:22px 16px}
   .banner strong{font-size:1.05rem;line-height:1.25}
-  form{padding:26px 22px;box-shadow:8px 8px 0 var(--oro)}
   .lema{padding:16px 20px}
 }
-@media (max-width:359px){ .banners{flex-direction:column} }
 </style>
 <script>if("IntersectionObserver" in window)document.documentElement.className+=" js"</script>
 </head>
@@ -198,6 +195,7 @@ body{overflow-x:hidden}
 <!-- Iconos SVG reutilizables (sin personas, sin imágenes externas) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM17.2 5.8a1 1 0 110 2 1 1 0 010-2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1.5 2v.4l7.5 5.1 7.5-5.1V7h-15zm15 2.8l-7 4.7a1 1 0 01-1 0l-7-4.7V17h15V9.8z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.2 14.8l-.4-.2-2.9.8.8-2.8-.2-.4A8 8 0 0112 4zm-3 3.5c-.3 0-.7.1-1 .5-.4.5-1 1.2-.9 2.4.2 1.3 1.1 2.6 2.4 3.9 1.4 1.3 2.9 2.1 4.2 2.3 1 .1 1.9-.5 2.2-1.4.1-.3.1-.6 0-.7l-1.9-.9c-.2-.1-.5 0-.6.2l-.6.8c-.1.1-.3.2-.5.1-.9-.4-2-1.2-2.700-2.3-.1-.2-.1-.4 0-.5l.5-.6c.1-.2.2-.4.1-.6L9.800 7.900c-.1-.3-.4-.4-.8-.4z"/></symbol>
 </svg>
 
@@ -396,35 +394,85 @@ body{overflow-x:hidden}
 <section id="contacto">
   <div class="wrap">
     <h2 class="rv">Hablemos de tu negocio</h2>
+    <p class="contacto-intro rv">Elige el canal que te resulte más cómodo y cuéntanos qué necesita tu negocio.</p>
     <div class="contact rv">
-      <div class="banners">
-        <a class="banner ig" href="https://www.instagram.com/admongex?xtok=YjB0eWY5bjU2N2Zo&amp;utm_source=qr" target="_blank" rel="noopener">
-          <svg><use href="#i-ig"/></svg><strong>Síguenos en Instagram</strong><span>@admongex</span>
-        </a>
-        <a class="banner wa" href="https://wa.me/34614927302?s=p" target="_blank" rel="noopener">
-          <svg><use href="#i-wa"/></svg><strong>Escríbenos por WhatsApp</strong><span>614 92 73 02</span>
-        </a>
-      </div>
-
-      <form id="form" action="https://formspree.io/f/mzergqob" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Nueva consulta desde la web de AdMonGex">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
-        <h3>Cuéntanos qué necesitas</h3>
-        <a class="tel" href="tel:+34614927302">Teléfono: 614 92 73 02</a>
-        <label for="nombre">Nombre <span class="req">*</span></label>
-        <input id="nombre" name="nombre" type="text" autocomplete="name" required>
-        <div class="err">Escribe tu nombre.</div>
-        <label for="email">Correo electrónico <span class="req">*</span></label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-        <div class="err">Escribe un correo válido, por ejemplo nombre@correo.com.</div>
-        <label for="tel">Teléfono (opcional)</label>
-        <input id="tel" name="tel" type="tel" autocomplete="tel">
-        <label for="msg">Describe tu consulta</label>
-        <textarea id="msg" name="msg" placeholder="Por ejemplo: llevo mis facturas a mano y necesito ayuda con los cobros pendientes."></textarea>
-        <button class="btn" type="submit">Enviar consulta</button>
-        <div class="ok" id="ok" role="status"></div>
-      </form>
+      <a class="banner ig" href="https://www.instagram.com/admongex?xtok=YjB0eWY5bjU2N2Zo&amp;utm_source=qr" target="_blank" rel="noopener">
+        <svg><use href="#i-ig"/></svg><strong>Síguenos en Instagram</strong><span>@admongex</span>
+      </a>
+      <a class="banner wa" href="https://wa.me/34614927302?s=p" target="_blank" rel="noopener">
+        <svg><use href="#i-wa"/></svg><strong>Escríbenos por WhatsApp</strong><span>614 92 73 02</span>
+      </a>
+      <a class="banner mail" href="mailto:admongex@gmail.com">
+        <svg><use href="#i-mail"/></svg><strong>Envíanos un correo</strong><span>admongex@gmail.com</span>
+      </a>
     </div>
+  </div>
+</section>
+
+<!-- ===== INFORMACIÓN LEGAL ===== -->
+<section id="legal">
+  <div class="wrap">
+    <h2>Información legal</h2>
+
+    <details class="lbox" id="aviso-legal">
+      <summary>Aviso legal</summary>
+      <div class="cuerpo">
+        <h3>1. Datos identificativos del titular</h3>
+        <p>En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que el titular de este sitio web es:</p>
+        <ul>
+          <li><strong>Titular:</strong> Miguel Martín Monferrer</li>
+          <li><strong>Nombre comercial:</strong> AdMonGex (Monferrer Administración &amp; Gestión)</li>
+          <li><strong>NIF:</strong> 14633827P</li>
+          <li><strong>Domicilio fiscal:</strong> Calle Ana María Matute, 4, Escalera 3, Piso 2, Puerta D</li>
+          <li><strong>Correo electrónico de contacto:</strong> mmartinmonferrer@gmail.com</li>
+        </ul>
+        <h3>2. Objeto</h3>
+        <p>Este sitio web tiene como finalidad ofrecer información sobre los servicios de apoyo administrativo y gestión documental que presta AdMonGex a autónomos y pequeñas empresas. El acceso a la web es gratuito y atribuye la condición de usuario a quien navega por ella.</p>
+        <h3>3. Condiciones de uso</h3>
+        <p>El usuario se compromete a utilizar la web de forma lícita, de buena fe y respetando la ley y los derechos de terceros. Queda prohibido utilizarla con fines ilícitos o que puedan dañar, inutilizar o deteriorar el sitio o impedir su normal funcionamiento.</p>
+        <h3>4. Propiedad intelectual e industrial</h3>
+        <p>Los textos, imágenes, ilustraciones, diseño, logotipo y demás elementos de este sitio web pertenecen al titular o se utilizan con la debida autorización. Queda prohibida su reproducción, distribución o transformación sin autorización expresa, salvo en los casos permitidos por la ley.</p>
+        <h3>5. Responsabilidad</h3>
+        <p>La información de la web tiene carácter informativo y general. No constituye asesoramiento fiscal, contable ni jurídico, y no sustituye el de tu asesoría o profesional de confianza. El titular procura que los contenidos sean correctos y estén actualizados, pero no garantiza la ausencia de errores ni la disponibilidad continua del sitio, y no se hace responsable de los daños derivados de interrupciones o fallos técnicos ajenos a su control.</p>
+        <h3>6. Enlaces a terceros</h3>
+        <p>Esta web contiene enlaces a servicios externos, como Instagram y WhatsApp. El titular no controla sus contenidos ni sus políticas, y no se responsabiliza de ellos. Su uso queda sujeto a los términos y la política de privacidad de cada plataforma.</p>
+        <h3>7. Legislación aplicable</h3>
+        <p>Este aviso legal se rige por la legislación española. Para cualquier controversia, serán competentes los juzgados y tribunales que correspondan conforme a la normativa vigente.</p>
+        <p class="act">Última actualización: 20 de noviembre de 2026.</p>
+      </div>
+    </details>
+
+    <details class="lbox" id="privacidad">
+      <summary>Política de privacidad</summary>
+      <div class="cuerpo">
+        <h3>1. Responsable del tratamiento</h3>
+        <ul>
+          <li><strong>Responsable:</strong> Miguel Martín Monferrer (AdMonGex)</li>
+          <li><strong>NIF:</strong> 14633827P</li>
+          <li><strong>Domicilio:</strong> Calle Ana María Matute, 4, Escalera 3, Piso 2, Puerta D</li>
+          <li><strong>Correo electrónico:</strong> mmartinmonferrer@gmail.com</li>
+        </ul>
+        <h3>2. Qué datos tratamos y cómo los obtenemos</h3>
+        <p>Esta web no tiene formularios ni recoge datos directamente. Solo tratamos los datos que tú nos facilites voluntariamente cuando nos contactas por correo electrónico, WhatsApp, Instagram o teléfono: normalmente tu nombre, tu medio de contacto y el contenido de tu consulta.</p>
+        <h3>3. Finalidad</h3>
+        <p>Atender tu consulta, responderte y, si lo solicitas, enviarte información o una propuesta de nuestros servicios.</p>
+        <h3>4. Base jurídica</h3>
+        <p>Tu consentimiento, que otorgas al ponerte en contacto con nosotros voluntariamente, y la aplicación de medidas precontractuales cuando lo solicitas (art. 6.1.a y 6.1.b del Reglamento General de Protección de Datos, RGPD).</p>
+        <h3>5. Conservación</h3>
+        <p>Conservaremos tus datos el tiempo necesario para atender tu consulta. Si no llega a formalizarse ninguna relación profesional, los eliminaremos como máximo en 12 meses. Si se formaliza, los conservaremos mientras dure la relación y, después, durante los plazos legales aplicables.</p>
+        <h3>6. Destinatarios y transferencias</h3>
+        <p>No cedemos tus datos a terceros, salvo obligación legal. Para comunicarnos contigo utilizamos servicios de terceros, como Gmail (Google), WhatsApp e Instagram (Meta). Estos proveedores pueden tratar datos fuera del Espacio Económico Europeo, con las garantías previstas en la normativa de protección de datos. Además, este sitio está alojado en GitHub Pages, que puede registrar datos técnicos de la visita, como la dirección IP, por motivos de seguridad y funcionamiento.</p>
+        <h3>7. Tus derechos</h3>
+        <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, así como retirar tu consentimiento en cualquier momento, escribiendo a <strong>mmartinmonferrer@gmail.com</strong> e indicando el derecho que quieres ejercer. Si consideras que no hemos tratado tus datos correctamente, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+        <h3>8. Cookies</h3>
+        <p>Este sitio web no utiliza cookies propias ni de terceros con fines de analítica o publicidad. Si esto cambia en el futuro, se informará aquí y se solicitará tu consentimiento cuando corresponda.</p>
+        <h3>9. Menores</h3>
+        <p>Los servicios de AdMonGex están dirigidos a profesionales y empresas. Si eres menor de edad, no nos facilites datos sin la autorización de tus padres o tutores.</p>
+        <h3>10. Seguridad y cambios</h3>
+        <p>Aplicamos medidas razonables para proteger tus datos. Podemos actualizar esta política cuando sea necesario; la fecha de la última revisión figura al final.</p>
+        <p class="act">Última actualización: 20 de noviembre de 2026.</p>
+      </div>
+    </details>
   </div>
 </section>
 </main>
@@ -437,8 +485,10 @@ body{overflow-x:hidden}
       <div class="redes">
         <a href="https://www.instagram.com/admongex?xtok=YjB0eWY5bjU2N2Zo&amp;utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
         <a href="https://wa.me/34614927302?s=p" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+        <a href="mailto:admongex@gmail.com" aria-label="Correo electrónico"><svg><use href="#i-mail"/></svg></a>
       </div>
     </div>
+    <nav class="legal-links" aria-label="Información legal"><a href="#aviso-legal" data-legal>Aviso legal</a><a href="#privacidad" data-legal>Política de privacidad</a></nav>
     <p class="copy">© <span id="anio">2026</span> AdMonGex · Monferrer Administración &amp; Gestión. Tú te ocupas de tu negocio. Nosotros te ayudamos con su gestión.</p>
   </div>
 </footer>
@@ -466,36 +516,17 @@ document.querySelectorAll('.rv').forEach((el, i) => {
   io.observe(el);
 });
 
-/* ===== Formulario: validación y envío a Formspree =====
-   Cada consulta llega por correo al email configurado en la cuenta de Formspree. */
-const form = document.getElementById('form');
-const aviso = document.getElementById('ok');
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  const nombre = form.nombre, email = form.email;
-  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
-  nombre.classList.toggle('invalid', !nombre.value.trim());
-  email.classList.toggle('invalid', !emailOk);
-  if (!nombre.value.trim() || !emailOk) return;
-
-  const boton = form.querySelector('button[type="submit"]');
-  boton.disabled = true; boton.textContent = 'Enviando…';
-  aviso.className = 'ok';
-  try {
-    const r = await fetch(form.action, {
-      method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
-    });
-    if (!r.ok) throw new Error('Error de envío');
-    aviso.textContent = 'Gracias. Hemos recibido tu consulta y te responderemos lo antes posible.';
-    form.reset();
-  } catch (err) {
-    aviso.textContent = 'No hemos podido enviar el formulario. Inténtalo de nuevo o escríbenos por WhatsApp al 614 92 73 02.';
-    aviso.classList.add('bad');
-  }
-  aviso.style.display = 'block';
-  boton.disabled = false; boton.textContent = 'Enviar consulta';
-});
-form.addEventListener('input', e => e.target.classList.remove('invalid'));
+/* ===== Textos legales: se despliegan al pulsar los enlaces del pie ===== */
+function abrirLegal(){
+  const d = document.getElementById(location.hash.slice(1));
+  if (d && d.tagName === 'DETAILS') d.open = true;
+}
+document.querySelectorAll('[data-legal]').forEach(a => a.addEventListener('click', () => {
+  const d = document.querySelector(a.getAttribute('href'));
+  if (d) d.open = true;
+}));
+window.addEventListener('hashchange', abrirLegal);
+abrirLegal();
 
 document.getElementById('anio').textContent = new Date().getFullYear();
 </script>
